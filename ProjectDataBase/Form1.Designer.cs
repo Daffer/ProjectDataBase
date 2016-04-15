@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.grbox_AuthorizationField = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Lab_Password = new System.Windows.Forms.Label();
+            this.Lab_Login = new System.Windows.Forms.Label();
             this.EditPassword = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Edit_Login = new System.Windows.Forms.TextBox();
             this.But_EnterInDB = new System.Windows.Forms.Button();
             this.grbox_AuthorizationField.SuspendLayout();
             this.SuspendLayout();
             // 
             // grbox_AuthorizationField
             // 
-            this.grbox_AuthorizationField.Controls.Add(this.label2);
-            this.grbox_AuthorizationField.Controls.Add(this.label1);
+            this.grbox_AuthorizationField.Controls.Add(this.Lab_Password);
+            this.grbox_AuthorizationField.Controls.Add(this.Lab_Login);
             this.grbox_AuthorizationField.Controls.Add(this.EditPassword);
-            this.grbox_AuthorizationField.Controls.Add(this.textBox1);
+            this.grbox_AuthorizationField.Controls.Add(this.Edit_Login);
             this.grbox_AuthorizationField.Controls.Add(this.But_EnterInDB);
             this.grbox_AuthorizationField.Location = new System.Drawing.Point(12, 12);
             this.grbox_AuthorizationField.Name = "grbox_AuthorizationField";
@@ -51,44 +51,45 @@
             this.grbox_AuthorizationField.TabStop = false;
             this.grbox_AuthorizationField.Text = "Авторизация";
             // 
-            // label2
+            // Lab_Password
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(195, 24);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "label2";
+            this.Lab_Password.AutoSize = true;
+            this.Lab_Password.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World, ((byte)(204)));
+            this.Lab_Password.Location = new System.Drawing.Point(216, 19);
+            this.Lab_Password.Name = "Lab_Password";
+            this.Lab_Password.Size = new System.Drawing.Size(52, 15);
+            this.Lab_Password.TabIndex = 9;
+            this.Lab_Password.Text = "Пароль:";
             // 
-            // label1
+            // Lab_Login
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "label1";
+            this.Lab_Login.AutoSize = true;
+            this.Lab_Login.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World, ((byte)(204)));
+            this.Lab_Login.Location = new System.Drawing.Point(21, 19);
+            this.Lab_Login.Name = "Lab_Login";
+            this.Lab_Login.Size = new System.Drawing.Size(45, 15);
+            this.Lab_Login.TabIndex = 8;
+            this.Lab_Login.Text = "Логин:";
             // 
             // EditPassword
             // 
-            this.EditPassword.Location = new System.Drawing.Point(361, 18);
+            this.EditPassword.Location = new System.Drawing.Point(274, 17);
             this.EditPassword.Name = "EditPassword";
             this.EditPassword.PasswordChar = 'П';
             this.EditPassword.Size = new System.Drawing.Size(135, 20);
             this.EditPassword.TabIndex = 7;
-            this.EditPassword.Text = "Пароль";
             this.EditPassword.UseSystemPasswordChar = true;
             // 
-            // textBox1
+            // Edit_Login
             // 
-            this.textBox1.Location = new System.Drawing.Point(70, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 6;
+            this.Edit_Login.Location = new System.Drawing.Point(72, 17);
+            this.Edit_Login.Name = "Edit_Login";
+            this.Edit_Login.Size = new System.Drawing.Size(138, 20);
+            this.Edit_Login.TabIndex = 6;
             // 
             // But_EnterInDB
             // 
-            this.But_EnterInDB.Location = new System.Drawing.Point(502, 16);
+            this.But_EnterInDB.Location = new System.Drawing.Point(415, 15);
             this.But_EnterInDB.Name = "But_EnterInDB";
             this.But_EnterInDB.Size = new System.Drawing.Size(75, 23);
             this.But_EnterInDB.TabIndex = 5;
@@ -110,10 +111,10 @@
 
         private System.Windows.Forms.TextBox ProgrammState;
         private System.Windows.Forms.GroupBox grbox_AuthorizationField;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Lab_Password;
+        private System.Windows.Forms.Label Lab_Login;
         private System.Windows.Forms.TextBox EditPassword;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Edit_Login;
         private System.Windows.Forms.Button But_EnterInDB;
     }
 }
