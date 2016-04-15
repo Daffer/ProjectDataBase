@@ -28,33 +28,93 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ProgrammState = new System.Windows.Forms.TextBox();
+            this.grbox_AuthorizationField = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.EditPassword = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.But_EnterInDB = new System.Windows.Forms.Button();
+            this.grbox_AuthorizationField.SuspendLayout();
             this.SuspendLayout();
             // 
-            // ProgrammState
+            // grbox_AuthorizationField
             // 
-            this.ProgrammState.Location = new System.Drawing.Point(12, 296);
-            this.ProgrammState.Name = "ProgrammState";
-            this.ProgrammState.Size = new System.Drawing.Size(534, 20);
-            this.ProgrammState.TabIndex = 0;
-            this.ProgrammState.TextChanged += new System.EventHandler(this.ProgrammState_TextChanged);
+            this.grbox_AuthorizationField.Controls.Add(this.label2);
+            this.grbox_AuthorizationField.Controls.Add(this.label1);
+            this.grbox_AuthorizationField.Controls.Add(this.EditPassword);
+            this.grbox_AuthorizationField.Controls.Add(this.textBox1);
+            this.grbox_AuthorizationField.Controls.Add(this.But_EnterInDB);
+            this.grbox_AuthorizationField.Location = new System.Drawing.Point(12, 12);
+            this.grbox_AuthorizationField.Name = "grbox_AuthorizationField";
+            this.grbox_AuthorizationField.Size = new System.Drawing.Size(596, 57);
+            this.grbox_AuthorizationField.TabIndex = 2;
+            this.grbox_AuthorizationField.TabStop = false;
+            this.grbox_AuthorizationField.Text = "Авторизация";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(195, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "label2";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(29, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "label1";
+            // 
+            // EditPassword
+            // 
+            this.EditPassword.Location = new System.Drawing.Point(361, 18);
+            this.EditPassword.Name = "EditPassword";
+            this.EditPassword.PasswordChar = 'П';
+            this.EditPassword.Size = new System.Drawing.Size(135, 20);
+            this.EditPassword.TabIndex = 7;
+            this.EditPassword.Text = "Пароль";
+            this.EditPassword.UseSystemPasswordChar = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(70, 19);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 6;
+            // 
+            // But_EnterInDB
+            // 
+            this.But_EnterInDB.Location = new System.Drawing.Point(502, 16);
+            this.But_EnterInDB.Name = "But_EnterInDB";
+            this.But_EnterInDB.Size = new System.Drawing.Size(75, 23);
+            this.But_EnterInDB.TabIndex = 5;
+            this.But_EnterInDB.Text = "button1";
+            this.But_EnterInDB.UseVisualStyleBackColor = true;
             // 
             // MainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(558, 328);
-            this.Controls.Add(this.ProgrammState);
+            this.ClientSize = new System.Drawing.Size(706, 335);
+            this.Controls.Add(this.grbox_AuthorizationField);
             this.Name = "MainWindow";
-            this.Text = "Form1";
+            this.grbox_AuthorizationField.ResumeLayout(false);
+            this.grbox_AuthorizationField.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.TextBox ProgrammState;
+        private System.Windows.Forms.GroupBox grbox_AuthorizationField;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox EditPassword;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button But_EnterInDB;
     }
 }
 

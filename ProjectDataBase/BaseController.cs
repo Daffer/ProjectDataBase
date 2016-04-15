@@ -31,12 +31,12 @@ namespace ProjectDataBase
                 pwd.AppendChar(res[I]);
             pwd.MakeReadOnly();
             string Name = "PavelAdmin";*/
-            DataBase = @"Data Source = DAFFER\SQLEXPRESS;Initial Catalog=Terminal;";
-            Communication = new SqlConnection(DataBase,Credential);
-            Communication.Open();
-            Communication = new SqlConnection(DataBase, Credential);
-            SqlDataAdapter adapter = new SqlDataAdapter(); //создаем адаптер для связи с данными. 
-            return;
+            //DataBase = @"Data Source = DAFFER\SQLEXPRESS;Initial Catalog=Terminal;";
+            //Communication = new SqlConnection(DataBase,Credential);
+            //Communication.Open();
+            //Communication = new SqlConnection(DataBase, Credential);
+            //SqlDataAdapter adapter = new SqlDataAdapter(); //создаем адаптер для связи с данными. 
+            //return;
 
         }
 
@@ -54,6 +54,25 @@ namespace ProjectDataBase
             }
         }
 
+        static public void CreateUser(string Name,SecureString Password)
+        {
+            if (true)//CheckName(Name) == 0)
+            {
+                try
+                { 
+                    Credential = new SqlCredential(Name, Password);
+                }
+                catch(SqlException error)
+                {
+                    //return error.Message;
+                }
+            }
+            else
+            {
+
+            }
+                    
+        }
         static private SqlExceptionHelp ErrorsHelper;
         static private SqlCredential Credential;
         static private string DataBase;
