@@ -1,6 +1,6 @@
 ﻿namespace ProjectDataBase
 {
-    partial class Form1
+    partial class MainWindow
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -28,20 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.ProgrammState = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // Form1
+            // ProgrammState
+            // 
+            this.ProgrammState.Location = new System.Drawing.Point(12, 296);
+            this.ProgrammState.Name = "ProgrammState";
+            this.ProgrammState.Size = new System.Drawing.Size(534, 20);
+            this.ProgrammState.TabIndex = 0;
+            this.ProgrammState.TextChanged += new System.EventHandler(this.ProgrammState_TextChanged);
+            // 
+            // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(545, 182);
-            this.Name = "Form1";
+            this.ClientSize = new System.Drawing.Size(558, 328);
+            this.Controls.Add(this.ProgrammState);
+            this.Name = "MainWindow";
             this.Text = "Form1";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.TextBox ProgrammState;
     }
 }
 
