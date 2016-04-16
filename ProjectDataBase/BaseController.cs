@@ -31,26 +31,28 @@ namespace ProjectDataBase
                 pwd.AppendChar(res[I]);
             pwd.MakeReadOnly();
             string Name = "PavelAdmin";*/
-            //DataBase = @"Data Source = DAFFER\SQLEXPRESS;Initial Catalog=Terminal;";
+            //
             //Communication = new SqlConnection(DataBase,Credential);
             //Communication.Open();
             //Communication = new SqlConnection(DataBase, Credential);
             //SqlDataAdapter adapter = new SqlDataAdapter(); //создаем адаптер для связи с данными. 
             //return;
-
+            DataBase = @"Data Source = DAFFER\SQLEXPRESS;Initial Catalog=Terminal;";
         }
 
-        public string ConnectToDataBase(string Name, SecureString Password)
+        public string ConnectToDataBase(string Name, SecureString Password,ref bool Connect)
         {
             string State;
             try
             {
                 Credential = new SqlCredential(Name, Password);
                 State = Connecting();
+                Connect = true;
             }
             catch(Exception Error)
             {
                 State = Error.Message;
+                Connect = false;
             }
             return State;
         }
@@ -60,12 +62,13 @@ namespace ProjectDataBase
             try
             {
                 Communication = new SqlConnection(DataBase, Credential);
+                Communication.Open();
                 return "Соедение установлено";
             }
             catch (SqlException error)
             {
                 return error.Message;
-                //ErrorsHelper.EnterError(error);
+                ErrorsHelper.EnterError(error);
             }
         }
         

@@ -28,8 +28,23 @@ namespace ProjectDataBase
         {
             string Login = Edit_Login.Text;
             Pwd.MakeReadOnly();
-            this.ProgramState.Text = Program.Base.ConnectToDataBase(Login, Pwd);
+            bool Connection = false;
+            this.ProgramState.Text = Program.Base.ConnectToDataBase(Login, Pwd,ref Connection);
+            if ( Connection == true)
+                this.grbox_AuthorizationField.Visible = false;
+            Pwd = new SecureString();
             return;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form Registr = new Registration();
+            Registr.Show();
+        }
+
+        public void ProgramCurrentState(string Message)
+        {
+            this.ProgramState.Text = Message;
         }
     }
 }

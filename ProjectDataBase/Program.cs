@@ -14,10 +14,13 @@ namespace ProjectDataBase
         [STAThread]
         static void Main()
         {
+            Base.Initialization();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainWindow());
+            MainW = new MainWindow();
+            Application.Run(MainW);
         }
+        static public MainWindow MainW;
         static public BaseController Base = new BaseController();
     }
 }

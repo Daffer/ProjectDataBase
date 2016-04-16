@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.grbox_AuthorizationField = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.But_Registration = new System.Windows.Forms.Button();
             this.Lab_Password = new System.Windows.Forms.Label();
             this.Lab_Login = new System.Windows.Forms.Label();
             this.Edit_Password = new System.Windows.Forms.TextBox();
@@ -41,7 +41,7 @@
             // 
             // grbox_AuthorizationField
             // 
-            this.grbox_AuthorizationField.Controls.Add(this.button1);
+            this.grbox_AuthorizationField.Controls.Add(this.But_Registration);
             this.grbox_AuthorizationField.Controls.Add(this.Lab_Password);
             this.grbox_AuthorizationField.Controls.Add(this.Lab_Login);
             this.grbox_AuthorizationField.Controls.Add(this.Edit_Password);
@@ -54,14 +54,15 @@
             this.grbox_AuthorizationField.TabStop = false;
             this.grbox_AuthorizationField.Text = "Авторизация";
             // 
-            // button1
+            // But_Registration
             // 
-            this.button1.Location = new System.Drawing.Point(496, 15);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(89, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Регистрация";
-            this.button1.UseVisualStyleBackColor = true;
+            this.But_Registration.Location = new System.Drawing.Point(496, 15);
+            this.But_Registration.Name = "But_Registration";
+            this.But_Registration.Size = new System.Drawing.Size(89, 23);
+            this.But_Registration.TabIndex = 10;
+            this.But_Registration.Text = "Регистрация";
+            this.But_Registration.UseVisualStyleBackColor = true;
+            this.But_Registration.Click += new System.EventHandler(this.button1_Click);
             // 
             // Lab_Password
             // 
@@ -87,7 +88,6 @@
             // 
             this.Edit_Password.Location = new System.Drawing.Point(274, 17);
             this.Edit_Password.Name = "Edit_Password";
-            this.Edit_Password.PasswordChar = 'П';
             this.Edit_Password.Size = new System.Drawing.Size(135, 20);
             this.Edit_Password.TabIndex = 7;
             this.Edit_Password.UseSystemPasswordChar = true;
@@ -116,6 +116,7 @@
             this.ProgramState.Name = "ProgramState";
             this.ProgramState.Size = new System.Drawing.Size(682, 20);
             this.ProgramState.TabIndex = 3;
+            
             // 
             // MainWindow
             // 
@@ -137,7 +138,7 @@
         private System.Windows.Forms.TextBox Edit_Password;
         private System.Windows.Forms.TextBox Edit_Login;
         private System.Windows.Forms.Button But_Authorization;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button But_Registration;
         private System.Windows.Forms.TextBox ProgramState;
     }
 }
