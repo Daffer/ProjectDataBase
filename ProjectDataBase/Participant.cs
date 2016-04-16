@@ -9,35 +9,31 @@ namespace ProjectDataBase
 {
     class Participant
     {
+        private string Login;
+        private string SurName;
         private string Name;
+        private string SecondName;
         private int ID;
         private string Email;
         private string Location;
         private int Priority;
-        public string NameOp
+        public void Information(object[] Info)
         {
-            get { return Name; }
-            set { Name = value; }
-        }
-        public int IDOp
-        {
-            get { return ID; }
-            set { ID = value; }
-        }
-        public string EmailOp
-        {
-            get { return Email; }
-            set { Email = value; }
-        }
-        public string LocationOp
-        {
-            get { return Location; }
-            set { Location = value; }
-        }
-        public int PriorityOp
-        {
-            get { return Priority; }
-            set { Priority = value; }
+            try
+            {
+                ID = Convert.ToInt32(Info[0]);
+                Login =  Info[1].ToString();
+                SurName = Info[2].ToString();
+                Name = Info[3].ToString();
+                SecondName = Info[4].ToString();
+                Email = Info[5].ToString();
+                Location = Info[6].ToString();
+                Priority = Convert.ToInt32(Info[7]);
+            }
+            catch(Exception error)
+            {
+                error = error;
+            }
         }
     }
 }

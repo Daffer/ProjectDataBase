@@ -47,7 +47,10 @@ namespace ProjectDataBase
                 {
                     Connecting(Credential);
                 }
-                GetInfoOfUser(Name);
+                User = new Participant();
+                if (User == null)
+                    return false;
+                GetInfoOfUser(Name);    
                 return true;
             }
             catch(Exception Error)
@@ -84,15 +87,18 @@ namespace ProjectDataBase
         {
             try
             {
-                SqlDataAdapter Adapter = new SqlDataAdapter();
-                if (Adapter == null)
-                    return false;
                 string Query = GetUser + Name + "')";
                 SqlCommand Command = new SqlCommand(Query, Communication);
                 if (Command == null)
                     return false;
                 SqlDataReader Reader = Command.ExecuteReader();
-
+                if (Reader.Read() == false)
+                {
+                    return false;
+                }
+                object[] Information = {null,null,null,null,null,null,null,null};
+                Reader.GetValues(Information);
+                User.Information(Information);
             }
             catch(SqlException error)
             {
@@ -100,7 +106,7 @@ namespace ProjectDataBase
             }
             return true;
         }
-
+        static private Participant User;
         static private SqlExceptionHelp ErrorHelp;
         static private string DataBase;
         static private SqlConnection Communication;
