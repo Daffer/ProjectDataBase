@@ -14,29 +14,22 @@ namespace ProjectDataBase
 {
     class BaseController
     {
+        string GetUser = "Select * from dbo.GetUser(N'";
         public void Initialization()
         {
             /*string[] FindSQL = Directory.GetFiles("C:","BMSTU");
             string CurrentDirectory = Directory.GetCurrentDirectory();
             string[] Findfile = Directory.GetFiles(CurrentDirectory);
-            /if (Findfile.Count<string>() <= 0)
-            //    File.Open(CurrentDirectory + "//Authorization.au", FileMode.Create);
-            //else
-            //    File.Open(CurrentDirectory + "//Authorization.au", FileMode.Open);
-            //File.ReadAllBytes()
-            //DataBase = FindSQL[0];
-            /*SecureString pwd = new SecureString();
-            char[] res = { 'C','a','t','1','9','9','5','0','2','1','4' };
-            for (int I = 0; I < res.Length ; I++)
-                pwd.AppendChar(res[I]);
-            pwd.MakeReadOnly();
-            string Name = "PavelAdmin";*/
-            //
-            //Communication = new SqlConnection(DataBase,Credential);
-            //Communication.Open();
-            //Communication = new SqlConnection(DataBase, Credential);
-            //SqlDataAdapter adapter = new SqlDataAdapter(); //создаем адаптер для связи с данными. 
-            //return;*/
+            if (Findfile.Count<string>() <= 0)
+                File.Open(CurrentDirectory + "//Authorization.au", FileMode.Create);
+            else
+                File.Open(CurrentDirectory + "//Authorization.au", FileMode.Open);
+            File.ReadAllBytes()
+            Communication = new SqlConnection(DataBase,Credential);
+            Communication.Open();
+            Communication = new SqlConnection(DataBase, Credential);
+            SqlDataAdapter adapter = new SqlDataAdapter(); //создаем адаптер для связи с данными. 
+            return;*/
             DataBase = @"Data Source = DAFFER\SQLEXPRESS;Initial Catalog=Terminal;";
             ErrorHelp = new SqlExceptionHelp();
             
@@ -54,6 +47,7 @@ namespace ProjectDataBase
                 {
                     Connecting(Credential);
                 }
+                GetInfoOfUser(Name);
                 return true;
             }
             catch(Exception Error)
@@ -80,7 +74,32 @@ namespace ProjectDataBase
                 ErrorHelp.EnterError(error);
             }
         }
+
+        public bool Registration()
+        {
+            return false;
+        }
         
+        private bool GetInfoOfUser(string Name)
+        {
+            try
+            {
+                SqlDataAdapter Adapter = new SqlDataAdapter();
+                if (Adapter == null)
+                    return false;
+                string Query = GetUser + Name + "')";
+                SqlCommand Command = new SqlCommand(Query, Communication);
+                if (Command == null)
+                    return false;
+                SqlDataReader Reader = Command.ExecuteReader();
+
+            }
+            catch(SqlException error)
+            {
+                ErrorHelp.GetUserErr(error);
+            }
+            return true;
+        }
 
         static private SqlExceptionHelp ErrorHelp;
         static private string DataBase;

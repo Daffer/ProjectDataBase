@@ -11,15 +11,33 @@ namespace ProjectDataBase
     {
         private string Name;
         private int ID;
-        public string NameOperation
+        private string Email;
+        private string Location;
+        private int Priority;
+        public string NameOp
         {
             get { return Name; }
             set { Name = value; }
         }
-        public int IDOperation
+        public int IDOp
         {
             get { return ID; }
             set { ID = value; }
+        }
+        public string EmailOp
+        {
+            get { return Email; }
+            set { Email = value; }
+        }
+        public string LocationOp
+        {
+            get { return Location; }
+            set { Location = value; }
+        }
+        public int PriorityOp
+        {
+            get { return Priority; }
+            set { Priority = value; }
         }
     }
 }

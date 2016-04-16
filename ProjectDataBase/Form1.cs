@@ -16,6 +16,8 @@ namespace ProjectDataBase
         public MainWindow()
         {
             InitializeComponent();
+
+            // Подписка на ErrorMsg с функцией HandleEventCurrentState
             Program.Base.GetException().ErrorMsg += HandleEventCurrentState;
         }
         
