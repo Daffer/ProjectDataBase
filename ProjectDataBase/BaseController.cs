@@ -17,22 +17,8 @@ namespace ProjectDataBase
         string GetUser = "Select * from dbo.GetUser(N'";
         public void Initialization()
         {
-            /*string[] FindSQL = Directory.GetFiles("C:","BMSTU");
-            string CurrentDirectory = Directory.GetCurrentDirectory();
-            string[] Findfile = Directory.GetFiles(CurrentDirectory);
-            if (Findfile.Count<string>() <= 0)
-                File.Open(CurrentDirectory + "//Authorization.au", FileMode.Create);
-            else
-                File.Open(CurrentDirectory + "//Authorization.au", FileMode.Open);
-            File.ReadAllBytes()
-            Communication = new SqlConnection(DataBase,Credential);
-            Communication.Open();
-            Communication = new SqlConnection(DataBase, Credential);
-            SqlDataAdapter adapter = new SqlDataAdapter(); //создаем адаптер для связи с данными. 
-            return;*/
             DataBase = @"Data Source = DAFFER\SQLEXPRESS;Initial Catalog=Terminal;";
-            ErrorHelp = new SqlExceptionHelp();
-            
+            ErrorHelp = new SqlExceptionHelp();   
         }
         public SqlExceptionHelp GetException()
         {

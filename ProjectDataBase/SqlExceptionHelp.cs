@@ -32,5 +32,10 @@ namespace ProjectDataBase
             EventHandler<string> handler = ErrorMsg;
             handler(this, error.Message);
         }
+        public void ParticipantErr(Exception error)
+        {
+            EventHandler<string> handler = ErrorMsg;
+            handler(this, error.Message);
+        }
     }
 }

@@ -32,7 +32,7 @@ namespace ProjectDataBase
             }
             catch(Exception error)
             {
-                error = error;
+                Program.Base.GetException().ParticipantErr(error);
             }
         }
     }
