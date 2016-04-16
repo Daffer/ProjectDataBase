@@ -40,7 +40,22 @@ namespace ProjectDataBase
 
         }
 
-        private string ConnectToDataBase()
+        public string ConnectToDataBase(string Name, SecureString Password)
+        {
+            string State;
+            try
+            {
+                Credential = new SqlCredential(Name, Password);
+                State = Connecting();
+            }
+            catch(Exception Error)
+            {
+                State = Error.Message;
+            }
+            return State;
+        }
+
+        private string Connecting()
         {
             try
             {
@@ -53,16 +68,18 @@ namespace ProjectDataBase
                 //ErrorsHelper.EnterError(error);
             }
         }
+        
 
-        static public void CreateUser(string Name,SecureString Password)
+        public string CreateUser(string Name,SecureString Password)
         {
             if (true)//CheckName(Name) == 0)
             {
                 try
                 { 
                     Credential = new SqlCredential(Name, Password);
+                    //return State;
                 }
-                catch(SqlException error)
+                catch(Exception error)
                 {
                     //return error.Message;
                 }
@@ -71,9 +88,9 @@ namespace ProjectDataBase
             {
 
             }
-                    
+            return "Error";
         }
-        static private SqlExceptionHelp ErrorsHelper;
+        private SqlExceptionHelp ErrorsHelper;
         static private SqlCredential Credential;
         static private string DataBase;
         static private SqlConnection Communication;

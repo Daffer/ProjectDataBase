@@ -6,7 +6,7 @@
         /// Обязательная переменная конструктора.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-
+        
         /// <summary>
         /// Освободить все используемые ресурсы.
         /// </summary>
@@ -29,27 +29,39 @@
         private void InitializeComponent()
         {
             this.grbox_AuthorizationField = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.Lab_Password = new System.Windows.Forms.Label();
             this.Lab_Login = new System.Windows.Forms.Label();
-            this.EditPassword = new System.Windows.Forms.TextBox();
+            this.Edit_Password = new System.Windows.Forms.TextBox();
             this.Edit_Login = new System.Windows.Forms.TextBox();
-            this.But_EnterInDB = new System.Windows.Forms.Button();
+            this.But_Authorization = new System.Windows.Forms.Button();
+            this.ProgramState = new System.Windows.Forms.TextBox();
             this.grbox_AuthorizationField.SuspendLayout();
             this.SuspendLayout();
             // 
             // grbox_AuthorizationField
             // 
+            this.grbox_AuthorizationField.Controls.Add(this.button1);
             this.grbox_AuthorizationField.Controls.Add(this.Lab_Password);
             this.grbox_AuthorizationField.Controls.Add(this.Lab_Login);
-            this.grbox_AuthorizationField.Controls.Add(this.EditPassword);
+            this.grbox_AuthorizationField.Controls.Add(this.Edit_Password);
             this.grbox_AuthorizationField.Controls.Add(this.Edit_Login);
-            this.grbox_AuthorizationField.Controls.Add(this.But_EnterInDB);
+            this.grbox_AuthorizationField.Controls.Add(this.But_Authorization);
             this.grbox_AuthorizationField.Location = new System.Drawing.Point(12, 12);
             this.grbox_AuthorizationField.Name = "grbox_AuthorizationField";
-            this.grbox_AuthorizationField.Size = new System.Drawing.Size(596, 57);
+            this.grbox_AuthorizationField.Size = new System.Drawing.Size(595, 47);
             this.grbox_AuthorizationField.TabIndex = 2;
             this.grbox_AuthorizationField.TabStop = false;
             this.grbox_AuthorizationField.Text = "Авторизация";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(496, 15);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(89, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Регистрация";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Lab_Password
             // 
@@ -71,14 +83,15 @@
             this.Lab_Login.TabIndex = 8;
             this.Lab_Login.Text = "Логин:";
             // 
-            // EditPassword
+            // Edit_Password
             // 
-            this.EditPassword.Location = new System.Drawing.Point(274, 17);
-            this.EditPassword.Name = "EditPassword";
-            this.EditPassword.PasswordChar = 'П';
-            this.EditPassword.Size = new System.Drawing.Size(135, 20);
-            this.EditPassword.TabIndex = 7;
-            this.EditPassword.UseSystemPasswordChar = true;
+            this.Edit_Password.Location = new System.Drawing.Point(274, 17);
+            this.Edit_Password.Name = "Edit_Password";
+            this.Edit_Password.PasswordChar = 'П';
+            this.Edit_Password.Size = new System.Drawing.Size(135, 20);
+            this.Edit_Password.TabIndex = 7;
+            this.Edit_Password.UseSystemPasswordChar = true;
+            this.Edit_Password.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EditPassword_KeyPress);
             // 
             // Edit_Login
             // 
@@ -87,35 +100,45 @@
             this.Edit_Login.Size = new System.Drawing.Size(138, 20);
             this.Edit_Login.TabIndex = 6;
             // 
-            // But_EnterInDB
+            // But_Authorization
             // 
-            this.But_EnterInDB.Location = new System.Drawing.Point(415, 15);
-            this.But_EnterInDB.Name = "But_EnterInDB";
-            this.But_EnterInDB.Size = new System.Drawing.Size(75, 23);
-            this.But_EnterInDB.TabIndex = 5;
-            this.But_EnterInDB.Text = "button1";
-            this.But_EnterInDB.UseVisualStyleBackColor = true;
+            this.But_Authorization.Location = new System.Drawing.Point(415, 15);
+            this.But_Authorization.Name = "But_Authorization";
+            this.But_Authorization.Size = new System.Drawing.Size(75, 23);
+            this.But_Authorization.TabIndex = 5;
+            this.But_Authorization.Text = "Войти";
+            this.But_Authorization.UseVisualStyleBackColor = true;
+            this.But_Authorization.Click += new System.EventHandler(this.But_Authorization_Click);
+            // 
+            // ProgramState
+            // 
+            this.ProgramState.Location = new System.Drawing.Point(12, 303);
+            this.ProgramState.Name = "ProgramState";
+            this.ProgramState.Size = new System.Drawing.Size(682, 20);
+            this.ProgramState.TabIndex = 3;
             // 
             // MainWindow
             // 
             this.ClientSize = new System.Drawing.Size(706, 335);
+            this.Controls.Add(this.ProgramState);
             this.Controls.Add(this.grbox_AuthorizationField);
             this.Name = "MainWindow";
             this.grbox_AuthorizationField.ResumeLayout(false);
             this.grbox_AuthorizationField.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox ProgrammState;
         private System.Windows.Forms.GroupBox grbox_AuthorizationField;
         private System.Windows.Forms.Label Lab_Password;
         private System.Windows.Forms.Label Lab_Login;
-        private System.Windows.Forms.TextBox EditPassword;
+        private System.Windows.Forms.TextBox Edit_Password;
         private System.Windows.Forms.TextBox Edit_Login;
-        private System.Windows.Forms.Button But_EnterInDB;
+        private System.Windows.Forms.Button But_Authorization;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox ProgramState;
     }
 }
 
