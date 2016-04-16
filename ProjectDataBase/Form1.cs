@@ -16,6 +16,7 @@ namespace ProjectDataBase
         public MainWindow()
         {
             InitializeComponent();
+            Program.Base.GetException().ErrorMsg += HandleEventCurrentState;
         }
         
         private void EditPassword_KeyPress(object sender, KeyPressEventArgs e)
@@ -29,10 +30,16 @@ namespace ProjectDataBase
             string Login = Edit_Login.Text;
             Pwd.MakeReadOnly();
             bool Connection = false;
-            this.ProgramState.Text = Program.Base.ConnectToDataBase(Login, Pwd,ref Connection);
-            if ( Connection == true)
+            Connection = Program.Base.ConnectToDataBase(Login, Pwd);
+            if (Connection == true)
+            {
                 this.grbox_AuthorizationField.Visible = false;
-            Pwd = new SecureString();
+            }
+            else
+            {
+                Pwd.Dispose();
+                Pwd = new SecureString();
+            }
             return;
         }
 
@@ -41,10 +48,11 @@ namespace ProjectDataBase
             Form Registr = new Registration();
             Registr.Show();
         }
-
-        public void ProgramCurrentState(string Message)
+        
+        void HandleEventCurrentState(object sender, string msg)
         {
-            this.ProgramState.Text = Message;
+            ProgramState.Text = msg;
         }
+        
     }
 }

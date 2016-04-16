@@ -16,10 +16,10 @@ namespace ProjectDataBase
     {
         public void Initialization()
         {
-            //string[] FindSQL = Directory.GetFiles("C:","BMSTU");
-            //string CurrentDirectory = Directory.GetCurrentDirectory();
-            //string[] Findfile = Directory.GetFiles(CurrentDirectory);
-            //if (Findfile.Count<string>() <= 0)
+            /*string[] FindSQL = Directory.GetFiles("C:","BMSTU");
+            string CurrentDirectory = Directory.GetCurrentDirectory();
+            string[] Findfile = Directory.GetFiles(CurrentDirectory);
+            /if (Findfile.Count<string>() <= 0)
             //    File.Open(CurrentDirectory + "//Authorization.au", FileMode.Create);
             //else
             //    File.Open(CurrentDirectory + "//Authorization.au", FileMode.Open);
@@ -36,65 +36,53 @@ namespace ProjectDataBase
             //Communication.Open();
             //Communication = new SqlConnection(DataBase, Credential);
             //SqlDataAdapter adapter = new SqlDataAdapter(); //создаем адаптер для связи с данными. 
-            //return;
+            //return;*/
             DataBase = @"Data Source = DAFFER\SQLEXPRESS;Initial Catalog=Terminal;";
+            ErrorHelp = new SqlExceptionHelp();
+            
         }
-
-        public string ConnectToDataBase(string Name, SecureString Password,ref bool Connect)
+        public SqlExceptionHelp GetException()
         {
-            string State;
+            return ErrorHelp;
+        }
+        public bool ConnectToDataBase(string Name, SecureString Password)
+        {
             try
             {
-                Credential = new SqlCredential(Name, Password);
-                State = Connecting();
-                Connect = true;
+                SqlCredential Credential = new SqlCredential(Name, Password);
+                if (Credential != null)
+                {
+                    Connecting(Credential);
+                }
+                return true;
             }
             catch(Exception Error)
             {
-                State = Error.Message;
-                Connect = false;
+                ErrorHelp.CredentialErr(Error);
+                return false;
             }
-            return State;
         }
 
-        private string Connecting()
+        private void Connecting(SqlCredential Credential)
         {
             try
             {
                 Communication = new SqlConnection(DataBase, Credential);
-                Communication.Open();
-                return "Соедение установлено";
+                if (Communication != null)
+                {
+                    Communication.Open();
+                    Exception State = new Exception("Соединение установлено");
+                    ErrorHelp.ConnectionErr(State);
+                }
             }
             catch (SqlException error)
             {
-                return error.Message;
-                ErrorsHelper.EnterError(error);
+                ErrorHelp.EnterError(error);
             }
         }
         
 
-        public string CreateUser(string Name,SecureString Password)
-        {
-            if (true)//CheckName(Name) == 0)
-            {
-                try
-                { 
-                    Credential = new SqlCredential(Name, Password);
-                    //return State;
-                }
-                catch(Exception error)
-                {
-                    //return error.Message;
-                }
-            }
-            else
-            {
-
-            }
-            return "Error";
-        }
-        private SqlExceptionHelp ErrorsHelper;
-        static private SqlCredential Credential;
+        static private SqlExceptionHelp ErrorHelp;
         static private string DataBase;
         static private SqlConnection Communication;
     }
