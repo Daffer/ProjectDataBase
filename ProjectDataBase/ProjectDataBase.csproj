@@ -74,6 +74,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Registration.resx">
       <DependentUpon>Registration.cs</DependentUpon>
@@ -90,6 +91,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MotherBoard.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\processor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GraphicsController.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hdd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\computer.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Configuration.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

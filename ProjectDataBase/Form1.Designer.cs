@@ -36,7 +36,15 @@
             this.Edit_Login = new System.Windows.Forms.TextBox();
             this.But_Authorization = new System.Windows.Forms.Button();
             this.ProgramState = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.P_Configuration = new System.Windows.Forms.Panel();
+            this.P_Computer = new System.Windows.Forms.Panel();
+            this.P_GraphicsController = new System.Windows.Forms.Panel();
+            this.P_Disks = new System.Windows.Forms.Panel();
+            this.P_MotherBoard = new System.Windows.Forms.Panel();
+            this.P_Processor = new System.Windows.Forms.Panel();
             this.grbox_AuthorizationField.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // grbox_AuthorizationField
@@ -47,7 +55,7 @@
             this.grbox_AuthorizationField.Controls.Add(this.Edit_Password);
             this.grbox_AuthorizationField.Controls.Add(this.Edit_Login);
             this.grbox_AuthorizationField.Controls.Add(this.But_Authorization);
-            this.grbox_AuthorizationField.Location = new System.Drawing.Point(12, 12);
+            this.grbox_AuthorizationField.Location = new System.Drawing.Point(5, 5);
             this.grbox_AuthorizationField.Name = "grbox_AuthorizationField";
             this.grbox_AuthorizationField.Size = new System.Drawing.Size(595, 47);
             this.grbox_AuthorizationField.TabIndex = 2;
@@ -112,20 +120,90 @@
             // 
             // ProgramState
             // 
-            this.ProgramState.Location = new System.Drawing.Point(12, 303);
+            this.ProgramState.Location = new System.Drawing.Point(5, 293);
             this.ProgramState.Name = "ProgramState";
-            this.ProgramState.Size = new System.Drawing.Size(682, 20);
+            this.ProgramState.Size = new System.Drawing.Size(595, 20);
             this.ProgramState.TabIndex = 3;
-            
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.P_Configuration);
+            this.groupBox1.Controls.Add(this.P_Computer);
+            this.groupBox1.Controls.Add(this.P_GraphicsController);
+            this.groupBox1.Controls.Add(this.P_Disks);
+            this.groupBox1.Controls.Add(this.P_MotherBoard);
+            this.groupBox1.Controls.Add(this.P_Processor);
+            this.groupBox1.Location = new System.Drawing.Point(5, 58);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(595, 229);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Меню";
+            // 
+            // P_Configuration
+            // 
+            this.P_Configuration.BackgroundImage = global::ProjectDataBase.Properties.Resources.Configuration;
+            this.P_Configuration.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.P_Configuration.Location = new System.Drawing.Point(328, 123);
+            this.P_Configuration.Name = "P_Configuration";
+            this.P_Configuration.Size = new System.Drawing.Size(91, 100);
+            this.P_Configuration.TabIndex = 5;
+            // 
+            // P_Computer
+            // 
+            this.P_Computer.BackgroundImage = global::ProjectDataBase.Properties.Resources.computer;
+            this.P_Computer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.P_Computer.Location = new System.Drawing.Point(231, 123);
+            this.P_Computer.Name = "P_Computer";
+            this.P_Computer.Size = new System.Drawing.Size(91, 100);
+            this.P_Computer.TabIndex = 3;
+            // 
+            // P_GraphicsController
+            // 
+            this.P_GraphicsController.BackgroundImage = global::ProjectDataBase.Properties.Resources.GraphicsController;
+            this.P_GraphicsController.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.P_GraphicsController.Location = new System.Drawing.Point(328, 17);
+            this.P_GraphicsController.Name = "P_GraphicsController";
+            this.P_GraphicsController.Size = new System.Drawing.Size(91, 100);
+            this.P_GraphicsController.TabIndex = 4;
+            // 
+            // P_Disks
+            // 
+            this.P_Disks.BackgroundImage = global::ProjectDataBase.Properties.Resources.hdd;
+            this.P_Disks.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.P_Disks.Location = new System.Drawing.Point(134, 123);
+            this.P_Disks.Name = "P_Disks";
+            this.P_Disks.Size = new System.Drawing.Size(91, 100);
+            this.P_Disks.TabIndex = 2;
+            // 
+            // P_MotherBoard
+            // 
+            this.P_MotherBoard.BackgroundImage = global::ProjectDataBase.Properties.Resources.MotherBoard;
+            this.P_MotherBoard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.P_MotherBoard.Location = new System.Drawing.Point(231, 17);
+            this.P_MotherBoard.Name = "P_MotherBoard";
+            this.P_MotherBoard.Size = new System.Drawing.Size(91, 100);
+            this.P_MotherBoard.TabIndex = 1;
+            // 
+            // P_Processor
+            // 
+            this.P_Processor.BackgroundImage = global::ProjectDataBase.Properties.Resources.processor;
+            this.P_Processor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.P_Processor.Location = new System.Drawing.Point(134, 17);
+            this.P_Processor.Name = "P_Processor";
+            this.P_Processor.Size = new System.Drawing.Size(91, 100);
+            this.P_Processor.TabIndex = 0;
             // 
             // MainWindow
             // 
-            this.ClientSize = new System.Drawing.Size(706, 335);
+            this.ClientSize = new System.Drawing.Size(669, 321);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ProgramState);
             this.Controls.Add(this.grbox_AuthorizationField);
             this.Name = "MainWindow";
             this.grbox_AuthorizationField.ResumeLayout(false);
             this.grbox_AuthorizationField.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,6 +218,13 @@
         private System.Windows.Forms.Button But_Authorization;
         private System.Windows.Forms.Button But_Registration;
         private System.Windows.Forms.TextBox ProgramState;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Panel P_Configuration;
+        private System.Windows.Forms.Panel P_Computer;
+        private System.Windows.Forms.Panel P_GraphicsController;
+        private System.Windows.Forms.Panel P_Disks;
+        private System.Windows.Forms.Panel P_MotherBoard;
+        private System.Windows.Forms.Panel P_Processor;
     }
 }
 

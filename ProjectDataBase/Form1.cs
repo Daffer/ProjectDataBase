@@ -66,6 +66,20 @@ namespace ProjectDataBase
         {
             ProgramState.Text = msg;
         }
-        
+
+        private void L_Processor_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PB_Processor_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void P_Processor_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
