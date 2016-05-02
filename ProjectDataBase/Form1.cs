@@ -23,7 +23,18 @@ namespace ProjectDataBase
         
         private void EditPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Pwd.AppendChar(e.KeyChar);
+
+            if (e.KeyChar == '\b')
+            {
+                if (Pwd.Length != 0)
+                {
+                    Pwd.RemoveAt(Pwd.Length-1);
+                }
+            }
+            else
+            {
+                Pwd.AppendChar(e.KeyChar);
+            }
         }
         SecureString Pwd = new SecureString();
 

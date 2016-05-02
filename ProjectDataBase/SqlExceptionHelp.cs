@@ -37,5 +37,20 @@ namespace ProjectDataBase
             EventHandler<string> handler = ErrorMsg;
             handler(this, error.Message);
         }
+        public void CheckLoginErr(SqlException error)
+        {
+            EventHandler<string> handler = ErrorMsg;
+            handler(this, error.Message);
+        }
+        public void CreateUserErr(Exception error)
+        {
+            EventHandler<string> handler = ErrorMsg;
+            handler(this, error.Message);
+        }
+        public void CreateUserErr(SqlException error)
+        {
+            EventHandler<string> handler = ErrorMsg;
+            handler(this, error.Message);
+        }
     }
 }
