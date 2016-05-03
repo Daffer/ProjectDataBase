@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security;
+
 namespace ProjectDataBase
 {
     public partial class MainWindow : Form
@@ -16,11 +17,12 @@ namespace ProjectDataBase
         public MainWindow()
         {
             InitializeComponent();
-
+            CategoriesMenu = new Menu();
+            CategoriesMenu.Initialization(this.Categories);
             // Подписка на ErrorMsg с функцией HandleEventCurrentState
             Program.Base.GetException().ErrorMsg += HandleEventCurrentState;
         }
-        
+        private Menu CategoriesMenu;
         private void EditPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
 
@@ -67,19 +69,17 @@ namespace ProjectDataBase
             ProgramState.Text = msg;
         }
 
-        private void L_Processor_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PB_Processor_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void P_Processor_Click(object sender, EventArgs e)
         {
+            CategoriesMenu.TransformOnSideBar(200, 50,15);
+            List<ListProcessor> Listik = new List<ListProcessor>();
+            Program.Base.Processor(ref Listik);
+            GB_DataSet.BackgroundImage = Listik[0].Picture;
+        }
 
+        private void P_GraphicsController_Click(object sender, EventArgs e)
+        {
+            CategoriesMenu.TransformOnMainMenu(200, 300);
         }
     }
 }

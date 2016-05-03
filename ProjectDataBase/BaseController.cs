@@ -7,16 +7,29 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data.Sql;
 using System.Data.SqlTypes;
+using System.Drawing;
 using System.IO;
 using System.Security;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace ProjectDataBase
 {
+    public struct ListProcessor
+    {
+        public string Name;
+        public string Socket;
+        public string Producer;
+        public string CoreName;
+        public int CountCore;
+        public Image Picture;
+        public double Cost;
+    }
     class BaseController
     {
         private string GetUser = "Select * from dbo.GetUser(N'";
         private string CheckLoginQuery = "Select dbo.VerificationLogin(N'";
         private string CreateUser = "CreateNewUser";
+        private string GetProcess = "Select * from dbo.GetProcessors()";
         public void Initialization()
         {
             ErrorHelp = new SqlExceptionHelp();
@@ -62,7 +75,51 @@ namespace ProjectDataBase
                 return false;
             }
         }
+        public bool Processor(ref List<ListProcessor> List)
+        {
+            try
+            { 
+                DataSet Set = new DataSet();
+                string Query = GetProcess;
+                SqlCommand Command = new SqlCommand(Query, Communication);
+                if (Command == null)
+                    return false;
+                SqlDataReader Reader = Command.ExecuteReader();
+                ListProcessor Item;
+                BinaryFormatter BF = new BinaryFormatter();
+                MemoryStream ms = new MemoryStream();
+                while (Reader.Read() != false)
+                {
+                    Item.Name = Reader[0].ToString();
+                    Item.Socket = Reader[1].ToString();
+                    Item.Producer = Reader[2].ToString();
+                    Item.CoreName = Reader[3].ToString();
+                    Item.CountCore = Convert.ToInt32(Reader[4]);
+                    SqlBytes buffer = Reader.GetSqlBytes(5);
+                    byte[] Kill = buffer.Value;
+                    ms = new MemoryStream(Kill);
+                    Item.Picture = Image.FromStream(ms);
+                    Item.Cost = Convert.ToDouble(Reader[6]);
+                    
+                    return false;
+                }
+                int I = 0;
+            }
+            catch (SqlException error)
+            {
+                ErrorHelp.GetUserErr(error);
+            }
+            catch(ArgumentException error)
+            {
+                return false;
+            }
+            catch (Exception error)
+            {
+                ErrorHelp.GetUserErr(error);
+            }
+            return true;
 
+        }
         private bool Connecting(SqlCredential Credential)
         {
             try
